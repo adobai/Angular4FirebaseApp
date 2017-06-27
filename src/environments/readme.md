@@ -1,5 +1,6 @@
 # Create your environment.ts file in the src/environments folder as follows:
 
+```
 export const environment = {
   production: false,
   firebase: {
@@ -11,3 +12,4 @@ export const environment = {
     messagingSenderId: "your firebase messaging sender id"
   }
 };
+```
