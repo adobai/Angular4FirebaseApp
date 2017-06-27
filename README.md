@@ -5,7 +5,7 @@ The following provides boilerplate for an Angular4 webapp utilizing the Twitter 
 1.  Create a new webapp using the [AngularCLI](https://cli.angular.io/)
 2.  Change to the directory that was created and run the following:
     >npm install firebase ngx-bootstrap@next angularfire2@next ngx-text-equality-validator --save
-3.  Copy files from this repository to your project (overwrite the existing files in your app)
+3.  Copy files from this repository to your project (overwrite the existing files in your app)  
   *```src/index.html```  
   *```src/styles.css```  
   *```src/app/*.*```    
