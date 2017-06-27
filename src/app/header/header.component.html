@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" (click)="isCollapsed = !isCollapsed">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand pull-left" routerLink="/">
+        Your Company Brand
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="navbar" [collapse]="isCollapsed">
+      <!-- TODO remove user notification -->
+      <!-- <div role="menuitem" *ngIf="(user | async)?.email"> {{ (user | async)?.email }} logged in.</div> -->
+      <div class="btn-group nav navbar-nav navbar-right" dropdown>
+        <button dropdownToggle class="btn navbar-btn btn-primary maes-secondary">
+          Menu <span class="caret"></span>
+        </button>
+        <ul *dropdownMenu class="dropdown-menu" role="menu">
+          <!-- always on -->
+          <li role="menuitem"><a class="dropdown-item" routerLink="/">Home</a>
+          <!-- sans auth -->
+          <li class="divider dropdown-divider" *ngIf="!authService.isAuthenticated()"></li>
+          <li role="menuitem" *ngIf="!authService.isAuthenticated()">
+            <a class="dropdown-item" (click)="loginModal.show();">Login</a>
+          </li>
+          <li role="menuitem" *ngIf="!authService.isAuthenticated()">
+            <a class="dropdown-item" (click)="registerModal.show()">Register</a>
+          </li>
+          <!-- avec auth -->
+          <li role="menuitem" *ngIf="authService.isAuthenticated()">
+            <a class="dropdown-item" (click)="onLogout()">Log out</a>
+          </li>
+          <li role="menuitem" *ngIf="authService.isAuthenticated()">
+            <a class="dropdown-item" routerLink="logged-in">Logged In Home</a>
+          </li>
+        </ul>
+      </div>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<app-login-modal #loginModal></app-login-modal>
+<app-register-modal #registerModal></app-register-modal>

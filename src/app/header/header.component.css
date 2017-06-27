@@ -1,0 +1,16 @@
+.navbar-brand {
+  padding: 0px; /* firefox bug fix */
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 0px; /* firefox bug fix */
+  width: auto;
+}
+
+.navbar{
+  margin-left:5px !important;
+  margin-right:5px !important;
+  background-color: #FFFFFF !important;
+  border-color: #FFFFFF !important;
+  outline: #FFFFFF !important;
+}
