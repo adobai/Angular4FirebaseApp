@@ -26,7 +26,11 @@ export class RegisterModalComponent implements OnInit {
         'email': new FormControl(null, [Validators.required, Validators.email]),
         'fname': new FormControl(null, Validators.required),
         'lname': new FormControl(null, Validators.required),
-        'regpassword': new FormControl(null, Validators.required),
+        'regpassword': new FormControl(null, 
+           [
+             Validators.required, 
+             Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$*])(?=.*[0-9])(?=.*[a-z]).{8,}$/)
+            ]),
         'confpassword': new FormControl(null, [Validators.required])
       });
     }

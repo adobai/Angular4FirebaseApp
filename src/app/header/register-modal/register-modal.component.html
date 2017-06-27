@@ -76,12 +76,15 @@
                 </div>
               </div>
               <div class="pull-right">
-                <button type="button" class="btn btn-default" (click)="registerModal.hide()" aria-label="Close">
+                <button type="button" class="btn btn-warning" (click)="registerModal.hide()" aria-label="Close">
                   Close
                 </button>
-                <button [disabled]="!registerForm.valid" type="submit" class="btn btn-primary" aria-label="register">
+                <button [disabled]="!registerForm.valid" [class]="!registerForm.valid ? 'btn btn-danger' : 'btn btn-success'" type="submit" aria-label="register">
                   Register
                 </button>
+                <span class="help-block ng-invalid ng-touched" *ngIf="!registerForm.valid">
+                  <h5>*All fields are required</h5>
+                </span>
               </div>
             </form>
           </div>
