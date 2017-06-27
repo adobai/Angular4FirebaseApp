@@ -6,10 +6,10 @@ The following provides boilerplate for an Angular4 webapp utilizing the Twitter 
 2.  Change to the directory that was created and run the following:
     >npm install firebase ngx-bootstrap@next angularfire2@next ngx-text-equality-validator --save
 3.  Copy files from this repository to your project (overwrite the existing files in your app)
-  *src/index.html  
-  *src/styles.css  
-  *src/app/*  
-4.  Update the src/environments/environment.ts file in your project to the following:
+  *```src/index.html```  
+  *```src/styles.css```  
+  *```src/app/*.*```    
+4.  Update the ```src/environments/environment.ts``` file in your project to the following:
 ```
 export const environment = {
   production: false,
