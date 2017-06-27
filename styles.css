@@ -1,0 +1,10 @@
+/* You can add global styles to this file, and also import other style files */
+input.ng-invalid.ng-touched {
+            background-color: red;
+            color: yellow;
+}
+
+span.ng-invalid.ng-touched {
+    background-color: red;
+    color: yellow;
+}
