@@ -33,7 +33,8 @@ export const environment = {
 Resources:
   * [AngularCLI](https://cli.angular.io/)  
   * [Twitter Bootstrap](http://getbootstrap.com/)  
-  * [Twitter Bootstrap CDN](http://getbootstrap.com/getting-started/)  
+  * [Twitter Bootstrap CDN](http://getbootstrap.com/getting-started/) 
+  * [Twitter Bootstrap Navbar Color Generator](https://work.smarchal.com/twbscolor/index.php)
   * [NGX-BOOTSTRAP Installation](https://github.com/valor-software/ngx-bootstrap#installation-instructions)  
   * [NGX-BOOTSTRAP Usage](http://valor-software.com/ngx-bootstrap/#/)  
   * [Font Awesome](http://fontawesome.io/)  
