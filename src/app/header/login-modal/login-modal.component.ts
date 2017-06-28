@@ -30,6 +30,6 @@ export class LoginModalComponent implements OnInit {
     onLogin(form: NgForm){
       const value = form.value;
       this.authService.login(value.email, value.password);
-      if (this.authService.getAuthStatus) {this.loginModal.hide()};
+      this.loginModal.hide();
     }
 }

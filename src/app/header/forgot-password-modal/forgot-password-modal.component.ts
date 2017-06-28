@@ -29,6 +29,6 @@ export class ForgotPasswordModalComponent implements OnInit {
     onForgotPassword(form: NgForm){
       const value = form.value;
       this.authService.forgotPassword(value.email);
-      if (this.authService.getAuthStatus) {this.forgotPasswordModal.hide()};
+      this.forgotPasswordModal.hide();
     }
 }
