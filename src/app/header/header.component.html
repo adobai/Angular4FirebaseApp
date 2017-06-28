@@ -14,35 +14,37 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="navbar" [collapse]="isCollapsed">
-      <!-- TODO remove user notification -->
-      <!-- <div role="menuitem" *ngIf="(user | async)?.email"> {{ (user | async)?.email }} logged in.</div> -->
-      <div class="btn-group nav navbar-nav navbar-right" dropdown>
-        <button dropdownToggle class="btn navbar-btn btn-primary maes-secondary">
-          Menu <span class="caret"></span>
-        </button>
-        <ul *dropdownMenu class="dropdown-menu" role="menu">
-          <!-- always on -->
-          <li role="menuitem"><a class="dropdown-item" routerLink="/">Home</a>
-          <!-- sans auth -->
-          <li class="divider dropdown-divider" *ngIf="!authService.isAuthenticated()"></li>
-          <li role="menuitem" *ngIf="!authService.isAuthenticated()">
-            <a class="dropdown-item" (click)="loginModal.show();">Login</a>
-          </li>
-          <li role="menuitem" *ngIf="!authService.isAuthenticated()">
-            <a class="dropdown-item" (click)="registerModal.show()">Register</a>
-          </li>
-          <!-- avec auth -->
-          <li role="menuitem" *ngIf="authService.isAuthenticated()">
-            <a class="dropdown-item" (click)="onLogout()">Log out</a>
-          </li>
-          <li role="menuitem" *ngIf="authService.isAuthenticated()">
-            <a class="dropdown-item" routerLink="logged-in">Logged In Home</a>
-          </li>
-        </ul>
-      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown" dropdown (onShown)="onShown()" (onHidden)="onHidden()" (isOpenChange)="isOpenChange()">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">Menu <span class="caret"></span></a>
+          <ul class="dropdown-menu" *dropdownMenu>
+            <!-- always on -->
+            <li role="menuitem"><a class="dropdown-item" routerLink="/">Home</a>
+            <!-- sans auth -->
+            <li class="divider dropdown-divider" *ngIf="!authService.isAuthenticated()"></li>
+            <li role="menuitem" *ngIf="!authService.isAuthenticated()">
+              <a class="dropdown-item" (click)="loginModal.show();">Login</a>
+            </li>
+            <li role="menuitem" *ngIf="!authService.isAuthenticated()">
+              <a class="dropdown-item" (click)="registerModal.show()">Register</a>
+            </li>
+            <li role="menuitem" *ngIf="!authService.isAuthenticated()">
+              <a class="dropdown-item" (click)="forgotPasswordModal.show()">Forgot Password</a>
+            </li>
+            <!-- avec auth -->
+            <li role="menuitem" *ngIf="authService.isAuthenticated()">
+              <a class="dropdown-item" (click)="onLogout()">Log out</a>
+            </li>
+            <li role="menuitem" *ngIf="authService.isAuthenticated()">
+              <a class="dropdown-item" routerLink="logged-in">Logged In Home</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
 <app-login-modal #loginModal></app-login-modal>
 <app-register-modal #registerModal></app-register-modal>
+<app-forgot-password-modal #forgotPasswordModal></app-forgot-password-modal> 

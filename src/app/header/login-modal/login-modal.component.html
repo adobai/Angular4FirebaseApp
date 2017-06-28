@@ -39,13 +39,12 @@
                     #lipassword="ngModel"
                     ngModel
                     required
-                    pattern="^(?=.*[A-Z])(?=.*[!@#$*])(?=.*[0-9])(?=.*[a-z]).{8,}$"
+                    pattern="^\S{6,}$"
                   >
                   <span class="help-block ng-invalid ng-touched" *ngIf="!lipassword.valid && lipassword.touched">
                     Invalid Password:<br>
-                    Your password must be at lease 8 characters long and<br>
-                    must contain an upper case letter, a lower case letter, <br>
-                    a number, and a special character like (i.e. !, @, #, $, or *).
+                    Your password must be at lease 6 characters long and<br>
+                    must not contain any empty space.
                   </span>
                 </div>
               </div>

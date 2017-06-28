@@ -15,6 +15,7 @@ export class RegisterModalComponent implements OnInit {
 
     @ViewChild('registerModal') public registerModal: ModalDirective;
     isShowModal: boolean = false;
+    isAuthenticating: boolean = null;
     registerForm: FormGroup;
 
     constructor(private authService: AuthService){
@@ -23,14 +24,16 @@ export class RegisterModalComponent implements OnInit {
 
     ngOnInit() {
       this.registerForm = new FormGroup({
-        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'email': new FormControl(null, [
+          Validators.required, 
+          Validators.email
+          ]),
         'fname': new FormControl(null, Validators.required),
         'lname': new FormControl(null, Validators.required),
-        'regpassword': new FormControl(null, 
-           [
-             Validators.required, 
-             Validators.pattern(/^(?=.*[A-Z])(?=.*[!@#$*])(?=.*[0-9])(?=.*[a-z]).{8,}$/)
-            ]),
+        'regpassword': new FormControl(null, [
+          Validators.required, 
+          Validators.pattern(/^\S{6,}$/)
+        ]),
         'confpassword': new FormControl(null, [Validators.required])
       });
     }
@@ -44,11 +47,17 @@ export class RegisterModalComponent implements OnInit {
       this.isShowModal = false;
     }
 
+    onIsAuthenticating(){
+      return this.isAuthenticating;
+    }
+
     onRegister(){
       const email = this.registerForm.get('email').value;
       const password = this.registerForm.get('regpassword').value
-      this.authService.createUser(email, password);
+      const dname = this.registerForm.get('fname').value + ' ' + this.registerForm.get('lname').value
+      this.isAuthenticating = true;
+      this.authService.createUser(email, password, dname);
       this.registerModal.hide();
+      this.isAuthenticating = null;
+      }
     }
-
-}

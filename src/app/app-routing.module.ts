@@ -6,12 +6,14 @@ import { AuthGuard } from './auth-guard.service';
 import { HomeComponent } from './home/home.component';
 import { LoggedInComponent } from './logged-in/logged-in.component';
 import { LoginRequiredComponent } from './login-required/login-required.component';
+import { AuthMessageComponent } from './auth-message/auth-message.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
   { path: '',  component: HomeComponent},
   { path: 'logged-in', canActivate: [AuthGuard], component: LoggedInComponent},
   { path: 'login-required', component: LoginRequiredComponent },
+  { path: 'auth-message', component: AuthMessageComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

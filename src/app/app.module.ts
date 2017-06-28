@@ -23,6 +23,8 @@ import { LoggedInComponent } from './logged-in/logged-in.component';
 import { LoginRequiredComponent } from './login-required/login-required.component';
 import { LoginModalComponent } from './header/login-modal/login-modal.component';
 import { RegisterModalComponent } from './header/register-modal/register-modal.component';
+import { ForgotPasswordModalComponent } from './header/forgot-password-modal/forgot-password-modal.component';
+import { AuthMessageComponent } from './auth-message/auth-message.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { RegisterModalComponent } from './header/register-modal/register-modal.c
     LoggedInComponent,
     LoginRequiredComponent,
     LoginModalComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    ForgotPasswordModalComponent,
+    AuthMessageComponent
   ],
   imports: [
     BrowserModule,

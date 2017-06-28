@@ -1,0 +1,12 @@
+<div *ngIf="errMsg; else elseBlock">
+  <div class='bg-danger'>
+    <p class='h1'>{{ msgtitle }}</p>
+    <p>{{ message }}</p>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class='bg-success'>
+    <p class='h1'>{{ msgtitle }}</p>
+    <p>{{ message }}</p>
+  </div>
+</ng-template>
